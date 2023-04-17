@@ -7,7 +7,15 @@ sealed class BottomItem(
     val iconId: Int,
     val route: String
 ) {
-    object Screen1 : BottomItem("Screen 1", R.drawable.ten_secconds, "screen_1")
-    object Screen2 : BottomItem("Screen 2", R.drawable.rating, "screen_2")
-    object Screen3 : BottomItem("Screen 3", R.drawable.settings, "screen_3")
+    object Screen1 : BottomItem("Game", R.drawable.ten_secconds, SCREEN_MAIN)
+    object Screen2 : BottomItem("Rating", R.drawable.rating, SCREEN_RATING)
+    object Screen3 : BottomItem("Settings", R.drawable.settings, SCREEN_SETTINGS)
+
+    companion object {
+       const val SCREEN_MAIN= "screenMain"
+       const val SCREEN_RATING= "screenRating"
+       const val SCREEN_SETTINGS= "screenSettings"
+    }
 }
+
+

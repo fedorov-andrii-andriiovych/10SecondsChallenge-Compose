@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.fedorov.andrii.andriiovych.tenseconds.bottomnavigation.screens.GameScreen
+import com.fedorov.andrii.andriiovych.tenseconds.bottomnavigation.screens.RatingScreen
+import com.fedorov.andrii.andriiovych.tenseconds.bottomnavigation.screens.SettingsScreen
 
 @Composable
 fun NavGraph(
@@ -11,16 +14,16 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = "screen_1"
+        startDestination = BottomItem.SCREEN_MAIN
     ) {
-        composable("screen_1") {
-            Screen1()
+        composable(BottomItem.SCREEN_MAIN) {
+            GameScreen()
         }
-        composable("screen_2"){
-            Screen2()
+        composable(BottomItem.SCREEN_RATING){
+            RatingScreen()
         }
-        composable ("screen_3"){
-            Screen3()
+        composable (BottomItem.SCREEN_SETTINGS){
+            SettingsScreen()
         }
     }
 }
