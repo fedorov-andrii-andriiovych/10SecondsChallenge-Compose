@@ -15,6 +15,8 @@ class MainViewModel:ViewModel(){
     var isRunning =  mutableStateOf(false)
     var elapsedTime =  mutableStateOf("0")
     var textColor = mutableStateOf(Color.Black)
+    val recordState = mutableStateOf(false)
+    val differenceState = mutableStateOf("0")
 
     fun startTimer() = viewModelScope.launch(Dispatchers.Default){
         val startTime = System.nanoTime()
@@ -39,11 +41,16 @@ class MainViewModel:ViewModel(){
     }
 
     fun resetTimer(){
+        recordState.value = false
         isRunning.value = !isRunning.value
         if (elapsedTime.value != "Fail") {
             val time = kotlin.math.abs(bestResult.value.toLong() - 10000000000)
             val eTime = kotlin.math.abs(elapsedTime.value.toLong() - 10000000000)
-            if (eTime < time) bestResult.value = elapsedTime.value
+            if (eTime < time) {
+                differenceState.value = (elapsedTime.value.toLong() - bestResult.value.toLong()).toString()
+                bestResult.value = elapsedTime.value
+                recordState.value = true
+            }
         }
         startTimer()
     }

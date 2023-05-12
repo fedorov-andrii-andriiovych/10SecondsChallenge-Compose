@@ -95,6 +95,16 @@ fun GameScreen(modifier: Modifier, mainViewModel: MainViewModel) {
             ) {
                 Text(
                     modifier = Modifier
+                        .fillMaxWidth()
+                        .offset(y = (-40).dp),
+                    text = if (mainViewModel.recordState.value) "New Record" else "",
+                    textAlign = TextAlign.Center,
+                    color = Color.Green,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    modifier = Modifier
                         .fillMaxWidth(),
                     text = if (mainViewModel.elapsedTime.value == "Fail") "Fail" else String.format(
                         "%.9f",
@@ -103,6 +113,19 @@ fun GameScreen(modifier: Modifier, mainViewModel: MainViewModel) {
                     textAlign = TextAlign.Center,
                     color = mainViewModel.textColor.value,
                     fontSize = 40.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .offset(y = (50).dp),
+                    text = if (mainViewModel.recordState.value)String.format(
+                        "%.9f",
+                        mainViewModel.differenceState.value.toDouble() / 1_000_000_000.0
+                    )  else "",
+                    textAlign = TextAlign.Center,
+                    color = Color.Green,
+                    fontSize = 32.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
