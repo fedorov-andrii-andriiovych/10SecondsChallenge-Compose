@@ -22,7 +22,7 @@ fun BottomNavigation(
         BottomItem.Screen3
     )
     androidx.compose.material.BottomNavigation(
-        backgroundColor = Color.Gray
+        backgroundColor = Color.Blue
     ) {
         val backStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry?.destination?.route
@@ -41,8 +41,8 @@ fun BottomNavigation(
                 label = {
                     Text(text = item.title, fontSize = 9.sp)
                 },
-                selectedContentColor = Color.White,
-                unselectedContentColor = Color.Black
+                selectedContentColor = Color.Yellow,
+                unselectedContentColor = Color.Gray
             )
         }
     }

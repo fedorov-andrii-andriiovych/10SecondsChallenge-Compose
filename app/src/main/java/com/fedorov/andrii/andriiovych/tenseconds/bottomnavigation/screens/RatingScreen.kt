@@ -12,7 +12,7 @@ import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun RatingScreen() {
-    Box(Modifier.background(Color.Cyan)) {
+    Box(Modifier.background(Color.White)) {
         Text(
             modifier = Modifier
                 .fillMaxSize()
